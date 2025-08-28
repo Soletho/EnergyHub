@@ -17,7 +17,16 @@ import {
   Wind,
   Shield,
   Award,
-  FileText
+  FileText,
+  GraduationCap,
+  Stethoscope,
+  Car,
+  Pill,
+  Brain,
+  Server,
+  DollarSign,
+  Leaf,
+  Timer
 } from 'lucide-react';
 
 interface BigTechCompany {
@@ -36,6 +45,13 @@ interface EnergyProject {
   landArea: string;
 }
 
+interface EcosystemSector {
+  icon: React.ReactNode;
+  title: string;
+  stats: string;
+  description: string;
+  synergy: string;
+}
 function App() {
   const [bigTechStatus, setBigTechStatus] = useState<BigTechCompany[]>([
     { name: 'Microsoft', status: 'evaluating', lastUpdate: '2 dias', accessLevel: 'restricted' },
@@ -64,6 +80,36 @@ function App() {
     }
   ]);
 
+  const ecosystemSectors: EcosystemSector[] = [
+    {
+      icon: <GraduationCap className="w-12 h-12" />,
+      title: "POLO UNIVERSITÁRIO",
+      stats: "658 estudantes TI/100k hab • 700+ Doutores",
+      description: "Capital brasileira líder em formação de TI com 6 universidades públicas e 141 instituições de ensino superior.",
+      synergy: "Especialistas locais garantem disponibilidade e conformidade dos datacenters"
+    },
+    {
+      icon: <Brain className="w-12 h-12" />,
+      title: "PORTO DIGITAL",
+      stats: "470+ empresas • R$ 6,2 bi faturamento • 21k colaboradores",
+      description: "Maior parque tecnológico do Brasil em faturamento por m², atuando em TIC, IoT e manufatura digital.",
+      synergy: "Startups e fintechs demandam escalabilidade, segurança e baixa latência"
+    },
+    {
+      icon: <Stethoscope className="w-12 h-12" />,
+      title: "POLO MÉDICO",
+      stats: "8k leitos • 20k atendimentos/dia • 2º maior do Brasil",
+      description: "Maior polo médico do Norte-Nordeste com 59 serviços especializados e 2.116 estabelecimentos.",
+      synergy: "Telemedicina, IA em diagnósticos e cirurgias remotas exigem disponibilidade total"
+    },
+    {
+      icon: <Car className="w-12 h-12" />,
+      title: "POLO AUTOMOTIVO",
+      stats: "2M veículos produzidos • R$ 23 bi investidos • 700 robôs",
+      description: "Stellantis e ecossistema automotivo com centro de P&D e automação avançada na Mata Norte.",
+      synergy: "Indústrias 4.0 geram grandes volumes de dados em tempo real com baixa latência"
+    }
+  ];
   const [currentTime, setCurrentTime] = useState(new Date());
 
   useEffect(() => {
@@ -88,7 +134,7 @@ function App() {
     {
       icon: <Zap className="w-8 h-8" />,
       title: "ENERGIA GARANTIDA",
-      description: "200MW disponíveis imediatamente, expansível para 500MW com matriz 95% renovável"
+      description: "200MW disponíveis imediatamente, expansível para 500MW. Base load ideal com crescimento +15% ao ano"
     },
     {
       icon: <Battery className="w-8 h-8" />,
@@ -110,6 +156,29 @@ function App() {
   return (
     <div className="min-h-screen bg-white text-black">
       {/* Hero Section */}
+
+          {/* Latency Details */}
+          <div className="mt-12 bg-gray-50 p-8 border border-black/20">
+            <h3 className="text-2xl font-bold mb-6 text-center">LATÊNCIA ESTRATÉGICA</h3>
+            <div className="grid md:grid-cols-4 gap-6 text-center">
+              <div>
+                <div className="text-2xl font-bold text-green-600">2ms</div>
+                <div className="text-sm">Polos econômicos PE</div>
+              </div>
+              <div>
+                <div className="text-2xl font-bold">40ms</div>
+                <div className="text-sm">Recife ↔ São Paulo</div>
+              </div>
+              <div>
+                <div className="text-2xl font-bold">120ms</div>
+                <div className="text-sm">Recife ↔ EUA (Virgínia)</div>
+              </div>
+              <div>
+                <div className="text-2xl font-bold">12ms</div>
+                <div className="text-sm">Recife ↔ Salvador</div>
+              </div>
+            </div>
+          </div>
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img 
@@ -169,7 +238,7 @@ function App() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
             <div className="text-center p-8 border border-black/20">
               <Shield className="w-12 h-12 mx-auto mb-4" />
               <h3 className="text-xl font-bold mb-4">GARANTIA GOVERNAMENTAL</h3>
@@ -184,6 +253,86 @@ function App() {
               <Award className="w-12 h-12 mx-auto mb-4" />
               <h3 className="text-xl font-bold mb-4">MARCO REGULATÓRIO</h3>
               <p className="text-sm">Legislação específica para facilitar instalação de datacenters</p>
+            </div>
+          </div>
+
+          {/* Fiscal Incentives */}
+          <div className="bg-gray-50 p-12 border border-black/20 mb-16">
+            <div className="text-center mb-12">
+              <DollarSign className="w-16 h-16 mx-auto mb-4" />
+              <h3 className="text-3xl font-bold mb-4">INCENTIVOS FISCAIS ESTRATÉGICOS</h3>
+              <p className="text-lg text-gray-700">
+                Pacote completo de benefícios fiscais para maximizar o retorno sobre investimento
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="bg-white p-6 border border-black/20 text-center">
+                <div className="text-2xl font-bold text-green-600 mb-2">58,85%</div>
+                <div className="text-sm font-bold mb-2">REDUÇÃO ICMS</div>
+                <div className="text-xs text-gray-600">Sobre CAPEX tecnológico (Lei 15.946/16)</div>
+              </div>
+              <div className="bg-white p-6 border border-black/20 text-center">
+                <div className="text-2xl font-bold text-green-600 mb-2">75%</div>
+                <div className="text-sm font-bold mb-2">REDUÇÃO IRPJ</div>
+                <div className="text-xs text-gray-600">Sudene + reinvestimento 30%</div>
+              </div>
+              <div className="bg-white p-6 border border-black/20 text-center">
+                <div className="text-2xl font-bold text-green-600 mb-2">100%</div>
+                <div className="text-sm font-bold mb-2">ISENÇÃO ICMS</div>
+                <div className="text-xs text-gray-600">Geração distribuída renovável</div>
+              </div>
+              <div className="bg-white p-6 border border-black/20 text-center">
+                <div className="text-2xl font-bold text-green-600 mb-2">DIFERIMENTO</div>
+                <div className="text-sm font-bold mb-2">ICMS SOLAR/EÓLICA</div>
+                <div className="text-xs text-gray-600">Decreto 44.650/17</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Business Environment */}
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-white p-8 border border-black/20">
+              <Timer className="w-12 h-12 mb-4 text-blue-600" />
+              <h3 className="text-2xl font-bold mb-4">AMBIENTE DE NEGÓCIOS ÁGIL</h3>
+              <div className="space-y-4">
+                <div className="flex justify-between items-center">
+                  <span className="text-sm">Licenciamento Ambiental:</span>
+                  <span className="font-bold text-green-600">156 → 32 dias</span>
+                </div>
+                <div className="text-xs text-gray-600">
+                  Processo digitalizado com redução de 80% no tempo
+                </div>
+                <div className="border-t pt-4">
+                  <div className="text-sm font-bold mb-2">Incentivos Locais:</div>
+                  <div className="text-xs text-gray-600">
+                    • Isenção/redução IPTU<br/>
+                    • Isenção/redução ISS<br/>
+                    • Apoio ADEPE integrado
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white p-8 border border-black/20">
+              <Leaf className="w-12 h-12 mb-4 text-green-600" />
+              <h3 className="text-2xl font-bold mb-4">SUSTENTABILIDADE CERTIFICADA</h3>
+              <div className="space-y-4">
+                <div className="text-sm">
+                  <strong>Selo Verde (Lei 16.112/2017)</strong><br/>
+                  Certificação para empresas sustentáveis
+                </div>
+                <div className="text-sm">
+                  <strong>PPP Solar Governamental</strong><br/>
+                  R$ 360 milhões em autoprodução
+                </div>
+                <div className="border-t pt-4">
+                  <div className="text-xs text-gray-600">
+                    Datacenters são os maiores compradores corporativos 
+                    de energia renovável (40-60% do mercado global)
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -347,6 +496,169 @@ function App() {
         </div>
       </section>
 
+      {/* Innovation Ecosystem */}
+      <section className="py-20 border-t border-black/20">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-6">
+              ECOSSISTEMA DE INOVAÇÃO E TALENTO
+              <div className="w-24 h-px bg-black mx-auto mt-4"></div>
+            </h2>
+            <p className="text-xl max-w-4xl mx-auto leading-relaxed">
+              <strong>Recife é a capital brasileira com maior número de estudantes de TI por habitante:</strong> 
+              658 por 100 mil habitantes. Um ecossistema único que garante disponibilidade de especialistas 
+              e conformidade operacional para datacenters.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12 mb-16">
+            <div className="bg-gray-50 p-8 border border-black/20">
+              <GraduationCap className="w-12 h-12 mb-6" />
+              <h3 className="text-2xl font-bold mb-6">POLO UNIVERSITÁRIO</h3>
+              <div className="grid grid-cols-2 gap-6 text-center mb-6">
+                <div>
+                  <div className="text-3xl font-bold">6</div>
+                  <div className="text-sm">Universidades Públicas</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold">141</div>
+                  <div className="text-sm">Instituições de Ensino Superior</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold">16</div>
+                  <div className="text-sm">Instituições Técnicas Federais</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold">+700</div>
+                  <div className="text-sm">Doutores em TI</div>
+                </div>
+              </div>
+              <p className="text-sm text-gray-600">
+                Especialistas locais garantem disponibilidade e conformidade. 
+                Hubs acadêmicos estimulam inovação e demanda por datacenters.
+              </p>
+            </div>
+
+            <div className="bg-gray-50 p-8 border border-black/20">
+              <Building2 className="w-12 h-12 mb-6" />
+              <h3 className="text-2xl font-bold mb-6">PORTO DIGITAL</h3>
+              <div className="grid grid-cols-2 gap-6 text-center mb-6">
+                <div>
+                  <div className="text-3xl font-bold">+470</div>
+                  <div className="text-sm">Empresas</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold">21K</div>
+                  <div className="text-sm">Colaboradores</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold">R$ 6,2bi</div>
+                  <div className="text-sm">Faturamento 2024</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold">TIC</div>
+                  <div className="text-sm">IoT • Economia Criativa</div>
+                </div>
+              </div>
+              <p className="text-sm text-gray-600">
+                Startups e fintechs demandam escalabilidade. P&D exige alta conectividade. 
+                Proximidade reduz latência e custos.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Strategic Sectors Synergies */}
+      <section className="py-20 border-t border-black/20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-6">
+              SINERGIAS SETORIAIS ESTRATÉGICAS
+              <div className="w-24 h-px bg-black mx-auto mt-4"></div>
+            </h2>
+            <p className="text-xl max-w-4xl mx-auto leading-relaxed">
+              Os principais setores econômicos de Pernambuco geram demanda natural e crescente 
+              por infraestrutura de datacenters, criando um ecossistema integrado e sustentável.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <div className="bg-white p-8 border border-black/20">
+              <Stethoscope className="w-12 h-12 mb-4 text-red-600" />
+              <h3 className="text-2xl font-bold mb-4">POLO MÉDICO</h3>
+              <div className="text-sm mb-4 space-y-2">
+                <div><strong>Maior do Norte-Nordeste</strong></div>
+                <div>• 8 mil leitos</div>
+                <div>• 20 mil atendimentos/dia</div>
+                <div>• 2.116 estabelecimentos</div>
+              </div>
+              <div className="text-xs text-gray-600 border-t pt-4">
+                <strong>Demanda por Datacenters:</strong><br/>
+                • Disponibilidade total (99,99%)<br/>
+                • Segurança LGPD/HIPAA<br/>
+                • Telemedicina e IA médica<br/>
+                • Cirurgias remotas
+              </div>
+            </div>
+
+            <div className="bg-white p-8 border border-black/20">
+              <Car className="w-12 h-12 mb-4 text-blue-600" />
+              <h3 className="text-2xl font-bold mb-4">POLO AUTOMOTIVO</h3>
+              <div className="text-sm mb-4 space-y-2">
+                <div><strong>Stellantis • Mata Norte</strong></div>
+                <div>• 2 milhões de veículos</div>
+                <div>• R$ 23 bi investidos/anunciados</div>
+                <div>• 700 robôs integrados</div>
+              </div>
+              <div className="text-xs text-gray-600 border-t pt-4">
+                <strong>Demanda por Datacenters:</strong><br/>
+                • Grandes volumes em tempo real<br/>
+                • Baixa latência para robôs<br/>
+                • IA, ERP e digital twin<br/>
+                • Automação industrial
+              </div>
+            </div>
+
+            <div className="bg-white p-8 border border-black/20">
+              <Pill className="w-12 h-12 mb-4 text-green-600" />
+              <h3 className="text-2xl font-bold mb-4">POLO FARMACÊUTICO</h3>
+              <div className="text-sm mb-4 space-y-2">
+                <div><strong>R$ 4 bi investidos em PE</strong></div>
+                <div>• Blau, Hemobrás, Aché</div>
+                <div>• Expansões bilionárias</div>
+                <div>• Centro de P&D</div>
+              </div>
+              <div className="text-xs text-gray-600 border-t pt-4">
+                <strong>Demanda por Datacenters:</strong><br/>
+                • Rastreabilidade digital<br/>
+                • Monitoramento tempo real<br/>
+                • IA para P&D<br/>
+                • Conformidade regulatória
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center bg-white p-8 border border-black/20">
+            <Brain className="w-16 h-16 mx-auto mb-4" />
+            <h3 className="text-2xl font-bold mb-4">INTELIGÊNCIA ARTIFICIAL - PRINCIPAL DRIVER</h3>
+            <div className="grid md:grid-cols-3 gap-8 text-center">
+              <div>
+                <div className="text-3xl font-bold text-blue-600">+30%</div>
+                <div className="text-sm">Crescimento anual IA</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-blue-600">24%</div>
+                <div className="text-sm">Servidores IA em datacenters</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-blue-600">50%</div>
+                <div className="text-sm">Do crescimento total até 2030</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       {/* Advantages Grid */}
       <section className="py-20 border-t border-black/20">
         <div className="max-w-7xl mx-auto px-6">
@@ -383,11 +695,11 @@ function App() {
                 </div>
                 <div className="flex items-center gap-4">
                   <Cpu className="w-6 h-6" />
-                  <span>Menor latência para datacenters intercontinentais</span>
+                  <span>Recife: 2ms dos polos econômicos de PE • 40ms de SP • 120ms EUA</span>
                 </div>
                 <div className="flex items-center gap-4">
                   <Building2 className="w-6 h-6" />
-                  <span>Suape: infraestrutura portuária e industrial consolidada</span>
+                  <span>Suape: 6.700 hectares disponíveis • 3GW de conexão elétrica</span>
                 </div>
                 <div className="flex items-center gap-4">
                   <Target className="w-6 h-6" />
@@ -413,9 +725,10 @@ function App() {
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-4xl font-bold mb-12 text-center">
             ESPECIFICAÇÕES TÉCNICAS
+            <div className="w-24 h-px bg-black mx-auto mt-4"></div>
           </h2>
           
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-4 gap-8 mb-16">
             <div className="text-center">
               <div className="text-5xl font-bold mb-4">400GB/s</div>
               <div className="text-xl mb-2">Cabo Submarino</div>
@@ -437,6 +750,47 @@ function App() {
               <div className="text-sm text-gray-600">Engenharia nacional</div>
             </div>
           </div>
+
+          {/* Energy Profile for Data Centers */}
+          <div className="bg-gray-50 p-12 border border-black/20">
+            <div className="text-center mb-12">
+              <Zap className="w-16 h-16 mx-auto mb-4" />
+              <h3 className="text-3xl font-bold mb-4">PERFIL ENERGÉTICO IDEAL PARA DATACENTERS</h3>
+              <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+                A demanda energética dos datacenters é perfeitamente alinhada com a oferta 
+                de Pernambuco: operação contínua, demanda estável e crescimento acelerado.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-4 gap-8">
+              <div className="text-center">
+                <div className="text-3xl font-bold mb-2">24x7x365</div>
+                <div className="text-sm font-bold mb-2">OPERAÇÃO CONTÍNUA</div>
+                <div className="text-xs text-gray-600">Base load ideal para energia renovável</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold mb-2">+15%</div>
+                <div className="text-sm font-bold mb-2">CRESCIMENTO ANUAL</div>
+                <div className="text-xs text-gray-600">Setor em expansão acelerada</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold mb-2">99.99%</div>
+                <div className="text-sm font-bold mb-2">DISPONIBILIDADE</div>
+                <div className="text-xs text-gray-600">Qualidade crítica exigida</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold mb-2">40-60%</div>
+                <div className="text-sm font-bold mb-2">ENERGIA RENOVÁVEL</div>
+                <div className="text-xs text-gray-600">Maiores compradores corporativos</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Infraestrutura Suape Detalhada */}
+          <div className="bg-gray-50 p-8 border border-black/20">
+            <h3 className="text-2xl font-bold mb-6 text-center">INFRAESTRUTURA SUAPE</h3>
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="text-center">
         </div>
       </section>
 
@@ -464,6 +818,41 @@ function App() {
             </div>
           </div>
 
+          {/* Incentivos Fiscais Detalhados */}
+          <div className="bg-gray-50 p-8 border border-black/20 mb-8">
+            <h3 className="text-2xl font-bold mb-6 text-center">
+              INCENTIVOS FISCAIS ESTRATÉGICOS
+            </h3>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="text-center">
+                <DollarSign className="w-8 h-8 mx-auto mb-2" />
+                <div className="text-2xl font-bold text-green-600">58,85%</div>
+                <div className="text-sm">Redução ICMS sobre CAPEX tecnológico</div>
+              </div>
+              <div className="text-center">
+                <Sun className="w-8 h-8 mx-auto mb-2" />
+                <div className="text-2xl font-bold text-green-600">100%</div>
+                <div className="text-sm">Diferimento ICMS solar/eólica</div>
+              </div>
+              <div className="text-center">
+                <Shield className="w-8 h-8 mx-auto mb-2" />
+                <div className="text-2xl font-bold text-green-600">75%</div>
+                <div className="text-sm">Redução IRPJ (Sudene)</div>
+              </div>
+              <div className="text-center">
+                <Timer className="w-8 h-8 mx-auto mb-2" />
+                <div className="text-2xl font-bold text-green-600">32 dias</div>
+                <div className="text-sm">Licenciamento digitalizado</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center">
+            <div className="inline-flex items-center gap-2 bg-green-100 px-4 py-2 rounded">
+              <Leaf className="w-5 h-5 text-green-600" />
+              <span className="text-sm font-medium">Selo Verde disponível para empresas sustentáveis</span>
+            </div>
+          </div>
           <div className="border-4 border-white p-12 mb-12">
             <h3 className="text-3xl font-bold mb-6">EMUU - MEMORANDO DE ENTENDIMENTO</h3>
             <div className="text-lg mb-4 opacity-90">
@@ -484,8 +873,11 @@ function App() {
             <div className="text-sm opacity-70 mb-4">
               Soleto • Moura BESS • Atlas Energias • SENAI TechHub • Barboza e Costa
             </div>
+            <div className="text-sm opacity-70 mb-4">
+              Articulação Institucional: ADEPE • Ministérios (Comunicações, MME, MDIC, Defesa, ANATEL)
+            </div>
             <div className="text-xs opacity-50">
-              Pernambuco Energy Hub © 2025 • O Oásis da Energia • Projeto Principal 180MW
+              Pernambuco Energy Hub © 2025 • Infraestrutura Crítica da Economia Digital • Projeto Principal 180MW
             </div>
           </div>
         </div>
@@ -495,3 +887,62 @@ function App() {
 }
 
 export default App;
+      {/* NEW: Ecossistema de Inovação e Talento */}
+      <section className="py-20 border-t border-black/20">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-6">
+              ECOSSISTEMA DE INOVAÇÃO E TALENTO
+              <div className="w-24 h-px bg-black mx-auto mt-4"></div>
+            </h2>
+            <p className="text-xl max-w-4xl mx-auto leading-relaxed">
+              Pernambuco concentra o maior ecossistema de inovação tecnológica do Nordeste, 
+              criando <strong>sinergias naturais com a demanda por datacenters</strong> de alta performance.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {ecosystemSectors.map((sector, index) => (
+              <div key={index} className="bg-white border border-black/20 p-8 hover:shadow-lg transition-all duration-300">
+                <div className="flex items-start gap-6">
+                  <div className="flex-shrink-0">
+                    {sector.icon}
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold mb-2">{sector.title}</h3>
+                    <div className="text-sm font-medium text-gray-600 mb-3">{sector.stats}</div>
+                    <p className="text-sm mb-4 leading-relaxed">{sector.description}</p>
+                    <div className="bg-gray-50 p-3 rounded">
+                      <div className="text-xs font-medium text-gray-500 mb-1">SINERGIA COM DATACENTERS:</div>
+                      <div className="text-sm">{sector.synergy}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <div className="bg-black text-white p-8">
+              <h3 className="text-2xl font-bold mb-4">DEMANDA SETORIAL CRESCENTE</h3>
+              <div className="grid md:grid-cols-3 gap-8">
+                <div>
+                  <Server className="w-8 h-8 mx-auto mb-2" />
+                  <div className="text-lg font-bold">+30% ao ano</div>
+                  <div className="text-sm opacity-80">Crescimento IA</div>
+                </div>
+                <div>
+                  <TrendingUp className="w-8 h-8 mx-auto mb-2" />
+                  <div className="text-lg font-bold">+15% ao ano</div>
+                  <div className="text-sm opacity-80">Cloud Computing</div>
+                </div>
+                <div>
+                  <Target className="w-8 h-8 mx-auto mb-2" />
+                  <div className="text-lg font-bold">99,99%</div>
+                  <div className="text-sm opacity-80">SLA Exigido</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
